@@ -66,6 +66,41 @@ Follow the prompts to set a username, email, and password. Once the server is ru
 
 This repository doesn't ship with any sample albums, songs, or playlists — the database starts empty aside from any base setup created by the `bootstrap` command (e.g. permission groups). To see the app in action, sign up for an account through the web interface and start adding albums and songs yourself.
 
+## URL reference
+
+### Web pages
+
+| URL | Description |
+|-----|-------------|
+| `/` | Home page |
+| `/albums/<id>/` | Album detail page |
+| `/albums/<id>/<slug>/` | Album detail page (slug variant) |
+| `/albums/search/` | Search albums |
+| `/albums/new/` | Create a new album |
+| `/albums/<id>/edit/` | Edit an album |
+| `/albums/<id>/delete/` | Delete an album |
+| `/songs/<id>/` | Song detail page |
+| `/songs/new/` | Create a new song |
+| `/songs/<id>/edit/` | Edit a song |
+| `/songs/<id>/delete/` | Delete a song |
+| `/users/<id>/` | User profile page |
+| `/users/<id>/<slug>/` | User profile page (slug variant) |
+
+### REST API
+
+| URL | Description |
+|-----|-------------|
+| `/api/albums/` | List / create albums |
+| `/api/albums/<id>/` | Retrieve, update, or delete an album |
+| `/api/albums/<id>/songs/` | List songs belonging to a specific album |
+| `/api/songs/` | List / create songs |
+| `/api/songs/<id>/` | Retrieve, update, or delete a song |
+| `/api/playlists/` | List / create playlists |
+| `/api/playlists/<id>/` | Retrieve, update, or delete a playlist |
+| `/api/statistics/` | Platform-wide statistics |
+| `/admin/` | Django admin panel |
+
+
 ## Project status
 
 Dottify was developed as a timeboxed university coursework project, so the feature set reflects what was achievable within that scope rather than a fully polished product. Some areas (UI styling, edge-case handling, test coverage) are functional but not exhaustive, and there's plenty of room for further development. Feedback and suggestions are welcome.
