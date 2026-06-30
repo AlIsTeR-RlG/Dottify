@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Search Albums</title>
+</head>
+
+<body>
+    <p><a href="{% url 'dottify:home' %}">home</a></p>
+    <h1>Search ALbums</h1>
+    <form method="get">
+        <input type="text" name="q" placeholder="Album title..." value="{{request.GET.q}}">
+        <button type="submit">search</button>
+    </form>
+
+    {% if albums %}
+        <h2>results</h2>
+        <ul>
+        {% for album in albums %}
+            <li><a href = "{% url 'dottify:album_detail' album.id %}">{{album.title}}</a></li>
+        {% endfor %}
+        </ul>
+    {% elif request.GET.q %}
+        <p>No Albums found</p>
+    {%endif%}
+</body>

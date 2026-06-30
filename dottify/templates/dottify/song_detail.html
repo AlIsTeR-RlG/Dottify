@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>{{ song.title }}</title>
+</head>
+<body>
+    <div>
+        <p><a href="{% url 'dottify:album_detail' song.album.id %}">back to album</a></p>
+        <h1>{{ song.title }}</h1>
+        <p><strong>ALbum:</strong>{{ song.album.title }}</p>
+        <p><strong>duration:</strong>{{ song.length }} seconds</p>
+        <br>
+        <a href = "{% url 'dottify:song_update' song.id %}">Edit</a>
+        <a href = "{% url 'dottify:song_delete' song.id %}">Delete</a>
+    </div>
+    <hr>
+    <h2>Comments</h2>
+    {% for comment in song.comment_set.all %}
+        <div style="color: burlywood;">
+            <p><strong>{{comment.commentee.display_name}}</strong> said:</p>
+            <p>{{comment.comment_text}}</p>
+        </div>
+        <br>
+    {%endfor%}
+</body>

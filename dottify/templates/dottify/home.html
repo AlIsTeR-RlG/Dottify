@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Dottify</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
+</head> 
+<body> 
+    <div class="container mt-4"> 
+        <h1>Dottify Home</h1> 
+         
+        <h2>Albums</h2> 
+        <ul> 
+        {% for album in items.albums %} 
+            <li> 
+                <a href="{% url 'dottify:album_detail' album.id %}">{{ album.title }}</a> 
+            </li> 
+        {% endfor %} 
+        </ul> 
+         
+        <h2>Playlists</h2> 
+        <ul> 
+        {% for playlist in items.playlists %} 
+            <li>{{ playlist.name }}</li> 
+        {% endfor %} 
+        </ul> 
+         
+        <h2>Songs</h2> 
+            <p><strong>Total Songs On Dottify:</strong> {{total_song}}</p>
+        <ul> 
+        {% for song in items.songs %} 
+            <li> 
+                <a href="{% url 'dottify:song_detail' song.id %}">{{ song.title }}</a> 
+            </li> 
+        {% endfor %} 
+        </ul> 
+          
+        <div class="mt-4"> 
+            <a href="{% url 'dottify:album_create' %}" class="btn btn-primary">Create Album</a> 
+            <a href="{% url 'dottify:song_create' %}" class="btn btn-primary">Create Song</a> 
+            <a href="{% url 'dottify:album_search' %}" class="btn btn-secondary">Search Albums</a> 
+        </div> 
+    </div> 
+</body> 
+</html> 

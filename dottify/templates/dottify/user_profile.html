@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>{{dottify_user.display_name}}</title>
+</head>
+
+<body>
+    <div>
+        <p><a href="{% url 'dottify:home' %}">home</a></p>
+        <h1>{{dottify_user.display_name}}</h1>
+
+        <h3>Playlists</h3>
+        {% if dottify_user.playlist_set.all %}
+            <ul>
+            {% for playlist in dottify_user.playlist_set.all %}
+                <li>
+                    {{playlist.name}}
+                    {% if playlist.songs.all %}
+                        <ul>
+                        {% for song in playlist.songs.all %}
+                            <li>{{song.title}}</li>
+                        {% endfor %}
+                        </ul>
+                    {% else %}
+                       <p>no songs yet.</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>no playlists yet</p>
+        {% endif %}
+    </div>
+</body>
