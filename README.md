@@ -64,7 +64,7 @@ Follow the prompts to set a username, email, and password. Once the server is ru
 
 ## A note on data
 
-This repository doesn't ship with any sample albums, songs, or playlists — the database starts empty aside from any base setup created by the `bootstrap` command (e.g. permission groups). To see the app in action, sign up for an account through the web interface and start adding albums and songs yourself.
+This repository doesn't ship with any sample albums, songs, or playlists. The database starts empty aside from any base setup created by the `bootstrap` command (e.g. permission groups). To see the app in action, sign up for an account through the web interface and start adding albums and songs yourself.
 
 ## URL reference
 
